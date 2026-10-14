@@ -1,0 +1,226 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ───────── Paleta LRomero: blanco, hueso y menta pastel ───────── */
+:root {
+  --mint-50: #f0fbf6;
+  --mint-100: #dcf6ea;
+  --mint-200: #bdeed7;
+  --mint-300: #92e2bf;
+  --mint-400: #62d3a2;
+  --mint-500: #3dbd88;
+  --mint-600: #1c8a5f;
+
+  --bone: #f7f6f1;
+  --ink: #26302c;
+  --ink-soft: #667069;
+  --radius: 0.75rem; /* 12px: inputs y botones */
+
+  /* Variables de shadcn mapeadas a la paleta */
+  --background: #f7f6f1;
+  --foreground: #26302c;
+  --card: #fffffe;
+  --card-foreground: #26302c;
+  --popover: #ffffff;
+  --popover-foreground: #26302c;
+  --primary: #62d3a2;
+  --primary-foreground: #12352a;
+  --secondary: #f0fbf6;
+  --secondary-foreground: #26302c;
+  --muted: #f0fbf6;
+  --muted-foreground: #667069;
+  --accent: #dcf6ea;
+  --accent-foreground: #12352a;
+  --destructive: #d65a5a;
+  --border: #dfe6e1;
+  --input: #dfe6e1;
+  --ring: #3dbd88;
+
+  --raised: #ffffff;
+  --glow: rgba(28, 138, 95, 0.7);
+  --card-shadow: 0 30px 80px -24px rgba(38, 48, 44, 0.22), 0 8px 24px -12px rgba(38, 48, 44, 0.1);
+
+  /* Fondo animado (tema claro: verde → blanco) */
+  --bd-conic: conic-gradient(from 0deg, #ffffff, #cdf3e0, #ffffff, #e8f7cf, #ffffff, #c4efe6, #ffffff);
+  --bd-a: rgb(143 224 188 / 0.7);
+  --bd-b: rgb(220 242 166 / 0.7);
+  --bd-c: rgb(166 233 222 / 0.6);
+  --bd-d: rgb(255 255 255 / 0.8);
+
+  --chart-1: #9be5c5;
+  --chart-2: #3dbd88;
+  --chart-3: #1c8a5f;
+  --chart-4: #e07a7a;
+}
+
+/* ───────── Tema oscuro: gris/negro con violeta ─────────
+   La escala "mint" se reasigna a violeta, así los componentes no cambian. */
+.dark {
+  color-scheme: dark;
+  --mint-50: #352f40;
+  --mint-100: #463d59;
+  --mint-200: #594d73;
+  --mint-300: #7d6aae;
+  --mint-400: #6e52b2;
+  --mint-500: #7f63c7;
+  --mint-600: #bcaaf2;
+
+  --bone: #1d1925;
+  --ink: #14101b;
+  --ink-soft: #b3abc6;
+
+  --background: #1a1621;
+  --foreground: #f1eef7;
+  --card: #28232f;
+  --card-foreground: #f1eef7;
+  --popover: #2f2939;
+  --popover-foreground: #f1eef7;
+  --primary: #6e52b2;
+  --primary-foreground: #ffffff;
+  --secondary: #352f40;
+  --secondary-foreground: #f1eef7;
+  --muted: #352f40;
+  --muted-foreground: #b3abc6;
+  --accent: #463d59;
+  --accent-foreground: #ffffff;
+  --destructive: #ff8f8f;
+  --border: #463e55;
+  --input: #463e55;
+  --ring: #9a82e0;
+
+  --raised: #332c3f;
+  --glow: rgba(110, 82, 178, 0.8);
+  --card-shadow: 0 30px 90px -20px rgba(0, 0, 0, 0.7), 0 8px 24px -12px rgba(0, 0, 0, 0.5);
+
+  --bd-conic: conic-gradient(from 0deg, #15121b, #35285f, #15121b, #2a2a4a, #15121b, #43275a, #15121b);
+  --bd-a: rgb(109 75 209 / 0.5);
+  --bd-b: rgb(58 47 122 / 0.6);
+  --bd-c: rgb(122 63 158 / 0.4);
+  --bd-d: rgb(10 8 14 / 0.7);
+
+  --chart-1: #6c5a9c;
+  --chart-2: #8f78d6;
+  --chart-3: #c4b4f5;
+  --chart-4: #ff8f8f;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-mint-50: var(--mint-50);
+  --color-mint-100: var(--mint-100);
+  --color-mint-200: var(--mint-200);
+  --color-mint-300: var(--mint-300);
+  --color-mint-400: var(--mint-400);
+  --color-mint-500: var(--mint-500);
+  --color-mint-600: var(--mint-600);
+  --color-bone: var(--bone);
+  --color-ink: var(--ink);
+  --color-raised: var(--raised);
+
+  --radius-lg: var(--radius);
+  --radius-xl: 0.75rem;
+  --radius-card: 1.75rem; /* 28px */
+
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-instrument), Georgia, 'Times New Roman', serif;
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+  --shadow-card: var(--card-shadow);
+
+  --animate-blink: blink 1s steps(1) infinite;
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { @apply bg-background text-foreground font-sans antialiased; }
+
+  /*
+   * Cuadrículas que no definen columnas base (solo breakpoints, p. ej. "grid gap-4 xl:grid-cols-2") tenían una columna
+   * implícita "auto" que se ensanchaba con su contenido (tablas, nombres largos) y desbordaba la pantalla del móvil.
+   * Ahora esa columna nunca excede el contenedor, y los hijos pueden encogerse. Los breakpoints (capa utilities) siguen mandando.
+   */
+  .grid:not([class^="grid-cols"]):not([class*=" grid-cols"]):not([class*="grid-template"]) { grid-template-columns: minmax(0, 1fr); }
+  .grid > * { min-width: 0; }
+}
+
+/* Degradado de página: blanco → menta muy suave */
+.page-bg {
+  background: linear-gradient(155deg, #ffffff 0%, var(--bone) 48%, var(--mint-100) 100%);
+}
+.dark .page-bg {
+  background: linear-gradient(155deg, #121016 0%, #1d1925 48%, #2a2140 100%);
+}
+
+/* Grano / noise sutil (SVG inline, baja opacidad) */
+.grain { position: relative; }
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0.07;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+.dark .grain::before { filter: invert(1); mix-blend-mode: screen; opacity: 0.05; }
+
+/* Autofill del navegador acorde al tema */
+input:-webkit-autofill {
+  -webkit-text-fill-color: var(--foreground);
+  box-shadow: 0 0 0 1000px var(--mint-50) inset;
+  transition: background-color 9999s ease-out;
+}
+
+/* Cambio de tema suave (la clase se añade solo ~350 ms) */
+html.theme-fade, html.theme-fade * {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Fondo animado fuera de la tarjeta: manchas que derivan a distinto ritmo */
+.blob { position: absolute; border-radius: 9999px; filter: blur(80px); will-change: transform; }
+@keyframes drift-a { 0%,100% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(9vw,7vh,0) scale(1.18); } }
+@keyframes drift-b { 0%,100% { transform: translate3d(0,0,0) scale(1.1); } 50% { transform: translate3d(-11vw,-6vh,0) scale(0.88); } }
+@keyframes drift-c { 0%,100% { transform: translate3d(0,0,0); } 33% { transform: translate3d(7vw,-9vh,0); } 66% { transform: translate3d(-6vw,5vh,0); } }
+@keyframes sheen { to { transform: translate(-50%,-50%) rotate(360deg); } }
+
+/* Exportación del estado del préstamo a PDF (Imprimir → Guardar como PDF): solo se imprime #loan-statement. */
+@media print {
+  body * { visibility: hidden; }
+  #loan-statement, #loan-statement *, #report-print, #report-print * { visibility: visible; }
+  #loan-statement, #report-print { position: absolute; left: 0; top: 0; width: 100%; }
+  body { background: #fff !important; }
+}

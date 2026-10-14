@@ -1,0 +1,4 @@
+.env*
+supabase/seed/
+auditoria-output/
+tests-responsive/
